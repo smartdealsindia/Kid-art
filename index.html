@@ -135,6 +135,26 @@ footer{
     padding:20px;
     color:#555;
 }
+    .tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.tab-btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#6366f1;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.tab-btn.active{
+    background:#f59e0b;
+}
 
 </style>
 </head>
@@ -144,7 +164,69 @@ footer{
 <header>
 🎨 Kids Cartoon Coloring World
 </header>
+<!-- TOP MENU TABS -->
 
+<div class="tabs">
+
+<button class="tab-btn active" onclick="showTab('coloring')">
+🎨 Coloring
+</button>
+
+<button class="tab-btn" onclick="showTab('numbers')">
+🔢 Numbers
+</button>
+
+</div>
+    <!-- COLORING SECTION -->
+
+<div id="coloring" class="tab-content">
+
+<!-- YOUR OLD COLORING GAME AREA HERE -->
+
+</div>
+
+
+
+<!-- NUMBER SECTION -->
+
+<div id="numbers" class="tab-content" style="display:none;">
+
+<div class="card">
+
+<h2>🔢 Learn Numbers</h2>
+
+<div class="numbers">
+
+<button class="num-btn" onclick="speakNumber(1)">1</button>
+<button class="num-btn" onclick="speakNumber(2)">2</button>
+<button class="num-btn" onclick="speakNumber(3)">3</button>
+<button class="num-btn" onclick="speakNumber(4)">4</button>
+<button class="num-btn" onclick="speakNumber(5)">5</button>
+
+<button class="num-btn" onclick="speakNumber(6)">6</button>
+<button class="num-btn" onclick="speakNumber(7)">7</button>
+<button class="num-btn" onclick="speakNumber(8)">8</button>
+<button class="num-btn" onclick="speakNumber(9)">9</button>
+<button class="num-btn" onclick="speakNumber(10)">10</button>
+
+<button class="num-btn" onclick="speakNumber(11)">11</button>
+<button class="num-btn" onclick="speakNumber(12)">12</button>
+<button class="num-btn" onclick="speakNumber(13)">13</button>
+<button class="num-btn" onclick="speakNumber(14)">14</button>
+<button class="num-btn" onclick="speakNumber(15)">15</button>
+
+<button class="num-btn" onclick="speakNumber(16)">16</button>
+<button class="num-btn" onclick="speakNumber(17)">17</button>
+<button class="num-btn" onclick="speakNumber(18)">18</button>
+<button class="num-btn" onclick="speakNumber(19)">19</button>
+<button class="num-btn" onclick="speakNumber(20)">20</button>
+
+</div>
+
+</div>
+
+</div>
+    
 <div class="top-panel">
 
 <div class="step-box" id="stepText">
@@ -346,7 +428,19 @@ function randomColor(){
     speak(colorNames[selectedColor]);
 
 }
+function showTab(tabId){
 
+    document.querySelectorAll(".tab-content")
+    .forEach(tab => {
+
+        tab.style.display = "none";
+
+    });
+
+    document.getElementById(tabId)
+    .style.display = "block";
+
+        }
 
 </script>
 
