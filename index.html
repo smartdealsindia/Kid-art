@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Advanced Kids Coloring Game</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    background:linear-gradient(to bottom,#dbeafe,#fef9c3);
+    overflow-x:hidden;
+}
+
+header{
+    background:#4f46e5;
+    color:white;
+    padding:18px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.top-panel{
+    padding:15px;
+    text-align:center;
+}
+
+.step-box{
+    background:white;
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:20px;
+    font-size:20px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.palette{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:15px;
+}
+
+.color-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:4px solid white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.color-btn:hover{
+    transform:scale(1.2);
+}
+
+.tools{
+    margin-top:20px;
+}
+
+button{
+    padding:12px 18px;
+    margin:6px;
+    border:none;
+    border-radius:12px;
+    background:#4f46e5;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.game-area{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:25px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+svg{
+    width:100%;
+    height:250px;
+}
+
+.paint{
+    fill:white;
+    stroke:black;
+    stroke-width:4;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.paint:hover{
+    filter:brightness(1.1);
+}
+
+h2{
+    margin-top:10px;
+}
+
+.stars{
+    font-size:24px;
+    color:gold;
+    margin-top:8px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+🎨 Kids Cartoon Coloring World
+</header>
+
+<div class="top-panel">
+
+<div class="step-box" id="stepText">
+STEP 1 → Select Color 🎨
+</div>
+
+<div class="palette">
+
+<div class="color-btn" style="background:red" onclick="setColor('red')"></div>
+<div class="color-btn" style="background:yellow" onclick="setColor('yellow')"></div>
+<div class="color-btn" style="background:green" onclick="setColor('green')"></div>
+<div class="color-btn" style="background:blue" onclick="setColor('blue')"></div>
+<div class="color-btn" style="background:pink" onclick="setColor('pink')"></div>
+<div class="color-btn" style="background:orange" onclick="setColor('orange')"></div>
+<div class="color-btn" style="background:purple" onclick="setColor('purple')"></div>
+<div class="color-btn" style="background:brown" onclick="setColor('brown')"></div>
+<div class="color-btn" style="background:black" onclick="setColor('black')"></div>
+
+</div>
+
+<div class="tools">
+<button onclick="clearAll()">🧹 Clear All</button>
+<button onclick="randomColor()">🌈 Random Color</button>
+</div>
+
+</div>
+
+<div class="game-area">
+
+<!-- CAT -->
+<div class="card">
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<polygon class="paint" points="55,60 75,20 95,60"/>
+<polygon class="paint" points="105,60 125,20 145,60"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+<ellipse class="paint" cx="100" cy="125" rx="18" ry="10"/>
+
+</svg>
+
+<h2>🐱 Cat</h2>
+<div class="stars">⭐ ⭐ ⭐</div>
+</div>
+
+<!-- DOG -->
+<div class="card">
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<ellipse class="paint" cx="55" cy="90" rx="20" ry="40"/>
+<ellipse class="paint" cx="145" cy="90" rx="20" ry="40"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+
+</svg>
+
+<h2>🐶 Dog</h2>
+<div class="stars">⭐ ⭐ ⭐</div>
+</div>
+
+<!-- RABBIT -->
+<div class="card">
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="110" r="55"/>
+<ellipse class="paint" cx="70" cy="40" rx="15" ry="45"/>
+<ellipse class="paint" cx="130" cy="40" rx="15" ry="45"/>
+<circle class="paint" cx="80" cy="105" r="7"/>
+<circle class="paint" cx="120" cy="105" r="7"/>
+
+</svg>
+
+<h2>🐰 Rabbit</h2>
+<div class="stars">⭐ ⭐ ⭐</div>
+</div>
+
+<!-- FISH -->
+<div class="card">
+<svg viewBox="0 0 200 200">
+
+<ellipse class="paint" cx="90" cy="100" rx="60" ry="40"/>
+<polygon class="paint" points="140,100 180,70 180,130"/>
+<circle class="paint" cx="70" cy="95" r="7"/>
+
+</svg>
+
+<h2>🐟 Fish</h2>
+<div class="stars">⭐ ⭐ ⭐</div>
+</div>
+
+<!-- BEAR -->
+<div class="card">
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<circle class="paint" cx="60" cy="50" r="20"/>
+<circle class="paint" cx="140" cy="50" r="20"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+<ellipse class="paint" cx="100" cy="125" rx="18" ry="12"/>
+
+</svg>
+
+<h2>🐻 Bear</h2>
+<div class="stars">⭐ ⭐ ⭐</div>
+</div>
+
+</div>
+
+<footer>
+Made For Kids Learning & Fun 🎈
+</footer>
+
+<script>
+
+let selectedColor = "red";
+
+function setColor(color){
+
+    selectedColor = color;
+
+    document.getElementById("stepText").innerHTML =
+    "STEP 2 → Tap Shape To Paint ✨";
+
+}
+
+const paints = document.querySelectorAll(".paint");
+
+paints.forEach(shape => {
+
+    shape.addEventListener("click", () => {
+
+        shape.style.fill = selectedColor;
+
+        playSound();
+
+        document.getElementById("stepText").innerHTML =
+        "STEP 3 → Create Amazing Cartoon 🎉";
+
+    });
+
+});
+
+function clearAll(){
+
+    paints.forEach(shape => {
+
+        shape.style.fill = "white";
+
+    });
+
+}
+
+function randomColor(){
+
+    const colors = [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "orange",
+        "pink",
+        "purple",
+        "brown"
+    ];
+
+    selectedColor =
+    colors[Math.floor(Math.random()*colors.length)];
+
+}
+
+function playSound(){
+
+    let audio = new Audio(
+    "https://actions.google.com/sounds/v1/cartoon/pop.ogg"
+    );
+
+    audio.play();
+
+}
+
+</script>
+
+</body>
+</html>
