@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Advanced Kids Coloring Game</title>
+<title>Kids Cartoon Coloring World</title>
 
 <style>
 
@@ -19,6 +19,8 @@ body{
     overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
     background:#4f46e5;
     color:white;
@@ -27,6 +29,31 @@ header{
     font-size:28px;
     font-weight:bold;
 }
+
+/* TAB SECTION */
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.tab-btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#6366f1;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.tab-btn.active{
+    background:#f59e0b;
+}
+
+/* TOP PANEL */
 
 .top-panel{
     padding:15px;
@@ -42,6 +69,43 @@ header{
     margin-bottom:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
+
+/* GUIDE */
+
+.guide-section{
+    padding:20px;
+    text-align:center;
+}
+
+.guide-row{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    padding:10px;
+}
+
+.guide-card{
+    min-width:140px;
+    background:white;
+    border-radius:20px;
+    padding:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.guide-card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.guide-card p{
+    margin-top:8px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* COLOR PALETTE */
 
 .palette{
     display:flex;
@@ -64,6 +128,8 @@ header{
     transform:scale(1.2);
 }
 
+/* BUTTONS */
+
 .tools{
     margin-top:20px;
 }
@@ -82,6 +148,8 @@ button{
 button:hover{
     opacity:0.9;
 }
+
+/* GAME AREA */
 
 .game-area{
     display:grid;
@@ -130,63 +198,53 @@ h2{
     margin-top:8px;
 }
 
+/* NUMBER SECTION */
+
+.numbers{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.num-btn{
+    padding:18px;
+    font-size:28px;
+    border:none;
+    border-radius:15px;
+    background:#f59e0b;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.num-btn:hover{
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+
 footer{
     text-align:center;
     padding:20px;
     color:#555;
 }
-    .tabs{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin-top:15px;
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .numbers{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .num-btn{
+        font-size:22px;
+        padding:14px;
+    }
+
 }
 
-.tab-btn{
-    padding:12px 20px;
-    border:none;
-    border-radius:12px;
-    background:#6366f1;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-}
-
-.tab-btn.active{
-    background:#f59e0b;
-}
-.guide-section{
-    padding:20px;
-    text-align:center;
-}
-
-.guide-row{
-    display:flex;
-    gap:15px;
-    overflow-x:auto;
-    padding:10px;
-}
-
-.guide-card{
-    min-width:140px;
-    background:white;
-    border-radius:20px;
-    padding:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.guide-card img{
-    width:100%;
-    height:120px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
-.guide-card p{
-    margin-top:8px;
-    font-size:18px;
-    font-weight:bold;
-}
 </style>
 </head>
 
@@ -195,32 +253,216 @@ footer{
 <header>
 🎨 Kids Cartoon Coloring World
 </header>
-<!-- TOP MENU TABS -->
+
+<!-- TABS -->
 
 <div class="tabs">
 
-<button class="tab-btn active" onclick="showTab('coloring')">
+<button class="tab-btn active" onclick="showTab('coloring', event)">
 🎨 Coloring
 </button>
 
-<button class="tab-btn" onclick="showTab('numbers')">
+<button class="tab-btn" onclick="showTab('numbers', event)">
 🔢 Numbers
 </button>
 
 </div>
-    <!-- COLORING SECTION -->
+
+<!-- COLORING SECTION -->
 
 <div id="coloring" class="tab-content">
 
-<!-- YOUR OLD COLORING GAME AREA HERE -->
+<div class="top-panel">
+
+<div class="step-box" id="stepText">
+STEP 1 → Select Color 🎨
+</div>
+
+<!-- GUIDE -->
+
+<div class="guide-section">
+
+<h2>🎨 Pick Picture Color Style</h2>
+
+<div class="guide-row">
+
+<div class="guide-card">
+<img src="https://i.imgur.com/XM1bB8x.png">
+<p>🐱 Cat</p>
+</div>
+
+<div class="guide-card">
+<img src="https://i.imgur.com/QM8TgD5.png">
+<p>🐶 Dog</p>
+</div>
+
+<div class="guide-card">
+<img src="https://i.imgur.com/lP6Q7s7.png">
+<p>🐰 Rabbit</p>
+</div>
+
+<div class="guide-card">
+<img src="https://i.imgur.com/W6X2hYH.png">
+<p>🐟 Fish</p>
+</div>
+
+<div class="guide-card">
+<img src="https://i.imgur.com/y9K4B3M.png">
+<p>🐻 Bear</p>
+</div>
 
 </div>
 
+</div>
 
+<!-- COLORS -->
+
+<div class="palette">
+
+<div class="color-btn" style="background:red" onclick="setColor('red')"></div>
+<div class="color-btn" style="background:yellow" onclick="setColor('yellow')"></div>
+<div class="color-btn" style="background:green" onclick="setColor('green')"></div>
+<div class="color-btn" style="background:blue" onclick="setColor('blue')"></div>
+<div class="color-btn" style="background:pink" onclick="setColor('pink')"></div>
+<div class="color-btn" style="background:orange" onclick="setColor('orange')"></div>
+<div class="color-btn" style="background:purple" onclick="setColor('purple')"></div>
+<div class="color-btn" style="background:brown" onclick="setColor('brown')"></div>
+<div class="color-btn" style="background:black" onclick="setColor('black')"></div>
+
+</div>
+
+<!-- TOOLS -->
+
+<div class="tools">
+<button onclick="clearAll()">🧹 Clear All</button>
+<button onclick="randomColor()">🌈 Random Color</button>
+</div>
+
+</div>
+
+<!-- ANIMALS -->
+
+<div class="game-area">
+
+<!-- CAT -->
+
+<div class="card">
+
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<polygon class="paint" points="55,60 75,20 95,60"/>
+<polygon class="paint" points="105,60 125,20 145,60"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+<ellipse class="paint" cx="100" cy="125" rx="18" ry="10"/>
+
+</svg>
+
+<h2>🐱 Cat</h2>
+
+<div class="stars">
+⭐ ⭐ ⭐
+</div>
+
+</div>
+
+<!-- DOG -->
+
+<div class="card">
+
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<ellipse class="paint" cx="55" cy="90" rx="20" ry="40"/>
+<ellipse class="paint" cx="145" cy="90" rx="20" ry="40"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+
+</svg>
+
+<h2>🐶 Dog</h2>
+
+<div class="stars">
+⭐ ⭐ ⭐
+</div>
+
+</div>
+
+<!-- RABBIT -->
+
+<div class="card">
+
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="110" r="55"/>
+<ellipse class="paint" cx="70" cy="40" rx="15" ry="45"/>
+<ellipse class="paint" cx="130" cy="40" rx="15" ry="45"/>
+<circle class="paint" cx="80" cy="105" r="7"/>
+<circle class="paint" cx="120" cy="105" r="7"/>
+
+</svg>
+
+<h2>🐰 Rabbit</h2>
+
+<div class="stars">
+⭐ ⭐ ⭐
+</div>
+
+</div>
+
+<!-- FISH -->
+
+<div class="card">
+
+<svg viewBox="0 0 200 200">
+
+<ellipse class="paint" cx="90" cy="100" rx="60" ry="40"/>
+<polygon class="paint" points="140,100 180,70 180,130"/>
+<circle class="paint" cx="70" cy="95" r="7"/>
+
+</svg>
+
+<h2>🐟 Fish</h2>
+
+<div class="stars">
+⭐ ⭐ ⭐
+</div>
+
+</div>
+
+<!-- BEAR -->
+
+<div class="card">
+
+<svg viewBox="0 0 200 200">
+
+<circle class="paint" cx="100" cy="100" r="60"/>
+<circle class="paint" cx="60" cy="50" r="20"/>
+<circle class="paint" cx="140" cy="50" r="20"/>
+<circle class="paint" cx="80" cy="95" r="8"/>
+<circle class="paint" cx="120" cy="95" r="8"/>
+<ellipse class="paint" cx="100" cy="125" rx="18" ry="12"/>
+
+</svg>
+
+<h2>🐻 Bear</h2>
+
+<div class="stars">
+⭐ ⭐ ⭐
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- NUMBER SECTION -->
 
 <div id="numbers" class="tab-content" style="display:none;">
+
+<div class="game-area">
 
 <div class="card">
 
@@ -257,150 +499,6 @@ footer{
 </div>
 
 </div>
-    
-<div class="top-panel">
-
-<div class="step-box" id="stepText">
-STEP 1 → Select Color 🎨
-</div>
-<!-- TOP COLOR IMAGE GUIDE -->
-
-<div class="guide-section">
-
-<h2>🎨 Pick Picture Color Style</h2>
-
-<div class="guide-row">
-
-<div class="guide-card">
-<img src="https://i.imgur.com/XM1bB8x.png">
-<p>🐱 Cat Color</p>
-</div>
-
-<div class="guide-card">
-<img src="https://i.imgur.com/QM8TgD5.png">
-<p>🐶 Dog Color</p>
-</div>
-
-<div class="guide-card">
-<img src="https://i.imgur.com/lP6Q7s7.png">
-<p>🐰 Rabbit Color</p>
-</div>
-
-<div class="guide-card">
-<img src="https://i.imgur.com/W6X2hYH.png">
-<p>🐟 Fish Color</p>
-</div>
-
-<div class="guide-card">
-<img src="https://i.imgur.com/y9K4B3M.png">
-<p>🐻 Bear Color</p>
-</div>
-
-</div>
-
-</div>
-<div class="palette">
-
-<div class="color-btn" style="background:red" onclick="setColor('red')"></div>
-<div class="color-btn" style="background:yellow" onclick="setColor('yellow')"></div>
-<div class="color-btn" style="background:green" onclick="setColor('green')"></div>
-<div class="color-btn" style="background:blue" onclick="setColor('blue')"></div>
-<div class="color-btn" style="background:pink" onclick="setColor('pink')"></div>
-<div class="color-btn" style="background:orange" onclick="setColor('orange')"></div>
-<div class="color-btn" style="background:purple" onclick="setColor('purple')"></div>
-<div class="color-btn" style="background:brown" onclick="setColor('brown')"></div>
-<div class="color-btn" style="background:black" onclick="setColor('black')"></div>
-
-</div>
-
-<div class="tools">
-<button onclick="clearAll()">🧹 Clear All</button>
-<button onclick="randomColor()">🌈 Random Color</button>
-</div>
-
-</div>
-
-<div class="game-area">
-
-<!-- CAT -->
-<div class="card">
-<svg viewBox="0 0 200 200">
-
-<circle class="paint" cx="100" cy="100" r="60"/>
-<polygon class="paint" points="55,60 75,20 95,60"/>
-<polygon class="paint" points="105,60 125,20 145,60"/>
-<circle class="paint" cx="80" cy="95" r="8"/>
-<circle class="paint" cx="120" cy="95" r="8"/>
-<ellipse class="paint" cx="100" cy="125" rx="18" ry="10"/>
-
-</svg>
-
-<h2>🐱 Cat</h2>
-<div class="stars">⭐ ⭐ ⭐</div>
-</div>
-
-<!-- DOG -->
-<div class="card">
-<svg viewBox="0 0 200 200">
-
-<circle class="paint" cx="100" cy="100" r="60"/>
-<ellipse class="paint" cx="55" cy="90" rx="20" ry="40"/>
-<ellipse class="paint" cx="145" cy="90" rx="20" ry="40"/>
-<circle class="paint" cx="80" cy="95" r="8"/>
-<circle class="paint" cx="120" cy="95" r="8"/>
-
-</svg>
-
-<h2>🐶 Dog</h2>
-<div class="stars">⭐ ⭐ ⭐</div>
-</div>
-
-<!-- RABBIT -->
-<div class="card">
-<svg viewBox="0 0 200 200">
-
-<circle class="paint" cx="100" cy="110" r="55"/>
-<ellipse class="paint" cx="70" cy="40" rx="15" ry="45"/>
-<ellipse class="paint" cx="130" cy="40" rx="15" ry="45"/>
-<circle class="paint" cx="80" cy="105" r="7"/>
-<circle class="paint" cx="120" cy="105" r="7"/>
-
-</svg>
-
-<h2>🐰 Rabbit</h2>
-<div class="stars">⭐ ⭐ ⭐</div>
-</div>
-
-<!-- FISH -->
-<div class="card">
-<svg viewBox="0 0 200 200">
-
-<ellipse class="paint" cx="90" cy="100" rx="60" ry="40"/>
-<polygon class="paint" points="140,100 180,70 180,130"/>
-<circle class="paint" cx="70" cy="95" r="7"/>
-
-</svg>
-
-<h2>🐟 Fish</h2>
-<div class="stars">⭐ ⭐ ⭐</div>
-</div>
-
-<!-- BEAR -->
-<div class="card">
-<svg viewBox="0 0 200 200">
-
-<circle class="paint" cx="100" cy="100" r="60"/>
-<circle class="paint" cx="60" cy="50" r="20"/>
-<circle class="paint" cx="140" cy="50" r="20"/>
-<circle class="paint" cx="80" cy="95" r="8"/>
-<circle class="paint" cx="120" cy="95" r="8"/>
-<ellipse class="paint" cx="100" cy="125" rx="18" ry="12"/>
-
-</svg>
-
-<h2>🐻 Bear</h2>
-<div class="stars">⭐ ⭐ ⭐</div>
-</div>
 
 </div>
 
@@ -413,6 +511,7 @@ Made For Kids Learning & Fun 🎈
 let selectedColor = "red";
 
 const colorNames = {
+
     red:"Red",
     blue:"Blue",
     green:"Green",
@@ -422,9 +521,12 @@ const colorNames = {
     purple:"Purple",
     brown:"Brown",
     black:"Black"
+
 };
 
 function speak(text){
+
+    window.speechSynthesis.cancel();
 
     let speech = new SpeechSynthesisUtterance(text);
 
@@ -437,6 +539,8 @@ function speak(text){
 
 }
 
+/* SET COLOR */
+
 function setColor(color){
 
     selectedColor = color;
@@ -447,6 +551,8 @@ function setColor(color){
     speak(colorNames[color]);
 
 }
+
+/* PAINT */
 
 const paints = document.querySelectorAll(".paint");
 
@@ -465,6 +571,8 @@ paints.forEach(shape => {
 
 });
 
+/* CLEAR */
+
 function clearAll(){
 
     paints.forEach(shape => {
@@ -473,7 +581,11 @@ function clearAll(){
 
     });
 
+    speak("Cleared");
+
 }
+
+/* RANDOM COLOR */
 
 function randomColor(){
 
@@ -491,10 +603,24 @@ function randomColor(){
     selectedColor =
     colors[Math.floor(Math.random()*colors.length)];
 
+    document.getElementById("stepText").innerHTML =
+    "Random Color : " + colorNames[selectedColor];
+
     speak(colorNames[selectedColor]);
 
 }
-function showTab(tabId){
+
+/* NUMBER SPEAK */
+
+function speakNumber(number){
+
+    speak(number.toString());
+
+}
+
+/* TAB SWITCH */
+
+function showTab(tabId, event){
 
     document.querySelectorAll(".tab-content")
     .forEach(tab => {
@@ -506,9 +632,18 @@ function showTab(tabId){
     document.getElementById(tabId)
     .style.display = "block";
 
-        }
+    document.querySelectorAll(".tab-btn")
+    .forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+    event.target.classList.add("active");
+
+}
 
 </script>
 
 </body>
-</html>
+    </html>
